@@ -1,0 +1,25 @@
+{
+    "name": "potherca/wikipedia-article-wordcount-per-language",
+    "version": "0.0.0-alpha",
+    "description": "When given the URL for any Article on Wikipedia, it will return a word count for that article for all languages it is available in.",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Potherca",
+            "email": "potherca@gmail.com",
+            "homepage": "http://pother.ca/",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Potherca\\Wall\\": "src/"
+        }
+    }
+}

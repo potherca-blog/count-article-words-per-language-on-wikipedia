@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--
+    Certain parts of the main content should not count towards the word count of
+    an article. These parts are the node with id "toc", all nodes with class
+    "mw-editsection", the H2 node that contains the node with id "See_also" and
+    all the nodes beyond the H2 node that contains the node with id "See_also".
+-->
+<html lang="en">
+<body>
+<div id="content" role="main">
+    <h1 id="firstHeading" class="firstHeading" lang="en">
+        <span dir="auto">Mock object</span>
+    </h1>
+
+    <div id="bodyContent">
+        <div id="mw-content-text" lang="en">
+            <div id="toc" class="toc">
+                <!-- ******************************************************* -->
+                        The words in the "toc" node should not be counted
+                <!-- ******************************************************* -->
+            </div>
+
+            <!-- ************************************************************* -->
+            <!-- All nodes with a `mw-editsection` class should not be counted -->
+            <!-- ************************************************************* -->
+            <h2>
+                <span class="mw-headline" id="Headers_should_be_counted">Headers should be counted</span>
+                <span class="mw-editsection">The words in "mw-editsection" nodes should not be counted</span>
+            </h2>
+
+            <p>One Two Three Four Five Six Seven Eight Nine Ten</p>
+            <ul>
+                <li>List Items should be counted</li>
+            </ul>
+
+            <h3>
+                <span class="mw-headline" id="">Subheaders should also be counted</span>
+                <span class="mw-editsection">The words in "mw-editsection" nodes should not be counted</span>
+            </h3>
+
+            <p>
+                <a href="">Links should also be counted</a>
+            </p>
+
+            <p>
+                <sup id="cite_ref-1" class="reference">
+                    <a href="#cite_note-1">
+                        <span>[</span>
+                        Citations should not be counted
+                        <span>]</span>
+                    </a>
+                </sup>
+            </p>
+
+            <p>
+                <code>Code should be counted</code>
+            </p>
+
+            <!-- ******************************************************* -->
+            <!-- The words below this line should also not be counted    -->
+            <!-- ******************************************************* -->
+            <h2>
+                <span class="mw-headline" id="See_also">The "See also" section should not be counted, nor anything after it</span>
+            </h2>
+
+            <div class="noprint tright portal" style="border:solid #aaa 1px;margin:0.5em 0 0.5em 1em;">
+                This should not be counted
+            </div>
+            <ul>
+                <li>
+                    This should not be counted
+                </li>
+            </ul>
+
+            <h2>
+                <span class="mw-headline" id="References">References should not be counted</span>
+            </h2>
+
+            <div class="reflist" style="list-style-type: decimal;">
+                <ol class="references">
+                    <li id="cite_note-1">
+                        <span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span>
+                        <span class="reference-text"><span class="citation book">
+                            This should <i>not</i> be counted
+                        </span></span>
+                    </li>
+                </ol>
+            </div>
+            <h2>
+                <span class="mw-headline" id="External_links">External links should not be counted</span>
+            </h2>
+            <ul>
+                <li>
+                    <a rel="nofollow" class="external text" href="http://should-not-be-count.ed">
+                        This should not be counted
+                    </a>
+                </li>
+            </ul>
+            <noscript>
+                This should not be counted
+            </noscript>
+        </div>
+    </div>
+</div>
+
+<div id="mw-navigation">
+    <h2>Navigation menu</h2>
+
+    <div id="mw-panel">
+        <div class="portal" role="navigation" id='p-lang'>
+            <h3 id='p-lang-label'>Languages</h3>
+
+            <div class="body">
+                <ul>
+                    <li class="interlanguage-link interwiki-ar">
+                        <a
+                            href="//ar.wikipedia.org/wiki/%D8%BA%D8%B1%D8%B6_%D9%85%D9%82%D9%84%D8%AF"
+                            title="غرض مقلد – Arabic"
+                            lang="ar"
+                            hreflang="ar"
+                        >العربية</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-de">
+                        <a href="//de.wikipedia.org/wiki/Mock-Objekt" title="Mock-Objekt – German" lang="de" hreflang="de">Deutsch</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-es">
+                        <a href="//es.wikipedia.org/wiki/Objeto_simulado" title="Objeto simulado – Spanish" lang="es" hreflang="es">Español</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-fr">
+                        <a href="//fr.wikipedia.org/wiki/Mock_(programmation_orient%C3%A9e_objet)" title="Mock (programmation orientée objet) – French" lang="fr" hreflang="fr">Français</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-ko">
+                        <a href="//ko.wikipedia.org/wiki/%EB%AA%A8%EC%9D%98_%EA%B0%9D%EC%B2%B4" title="모의 객체 – Korean" lang="ko" hreflang="ko">한국어</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-nl">
+                        <a href="//nl.wikipedia.org/wiki/Mockobject" title="Mockobject – Dutch" lang="nl" hreflang="nl">Nederlands</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-ja">
+                        <a href="//ja.wikipedia.org/wiki/%E3%83%A2%E3%83%83%E3%82%AF%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88" title="モックオブジェクト – Japanese" lang="ja" hreflang="ja">日本語</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-pt">
+                        <a href="//pt.wikipedia.org/wiki/Mock_Object" title="Mock Object – Portuguese" lang="pt" hreflang="pt">Português</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-ru">
+                        <a href="//ru.wikipedia.org/wiki/Mock-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82" title="Mock-объект – Russian" lang="ru" hreflang="ru">Русский</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-uk">
+                        <a href="//uk.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BA%D0%B5%D1%82_%D0%BE%D0%B1%27%D1%94%D0%BA%D1%82%D0%B0" title="Макет об'єкта – Ukrainian" lang="uk" hreflang="uk">Українська</a>
+                    </li>
+                    <li class="interlanguage-link interwiki-zh">
+                        <a href="//zh.wikipedia.org/wiki/%E6%A8%A1%E6%8B%9F%E5%AF%B9%E8%B1%A1" title="模拟对象 – Chinese" lang="zh" hreflang="zh">中文</a>
+                    </li>
+                    <li class="uls-p-lang-dummy"><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
