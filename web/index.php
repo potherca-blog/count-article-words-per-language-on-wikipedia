@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
+ini_set('default_charset', 'utf-8');
 
 $sUrl = '';
 $isValid = true;
@@ -14,14 +15,24 @@ if (isset($_POST['url'])) {
 }
 ?>
 <html>
-<head>
+<head profile="http://microformats.org/profile/rel-license">
+    <meta charset="utf-8"> 
     <title>Wikipedia Article Word Counter</title>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.2.2/css/foundation.min.css" />
     <style>
         body {padding:1em;}
+        table {margin: 0 auto;}
+        .potherca, .potherca:hover {color: rgb(220, 50, 47); border-bottom: 1px solid rgb(255,255,255);}
+        .potherca:hover {border-bottom-color: rgb(220, 50, 47)}
     </style>
 </head>
-<body>
+<body class="text-center">
+    <header>
+        <h1>
+            CAWpLoW
+            <small>Count Article Words, per Language, on Wikipedia</small>
+        </h1>
+    </header>
     <form
         accept-charset="utf-8"
         action=""
@@ -41,6 +52,14 @@ if (isset($_POST['url'])) {
     </form>
     <?=$sContent ?>
 <hr/>
+<footer class="text-right">
+    <small>
+        The Source Code for this project is available on <a href="https://github.com/potherca/count-article-words-per-language-on-wikipedia"
+       >github.com</a> under a <a href="https://www.gnu.org/licenses/gpl.html" rel="license"
+       >GPLv3 License</a>
+    &ndash;
+        Created by <a href="http://pother.ca/" class="potherca">Potherca</a>
+</footer>
 </body>
 </html>
 <?php
@@ -355,7 +374,11 @@ function buildContent($sUrl)
             'zu' => 'isiZulu (Zulu)',
         );
 
-        $oFetcher = new \Potherca\Wall\Shell\WebFetcher();
+        if (isset($_SERVER['SERVER_NAME']) && substr($_SERVER['SERVER_NAME'], -6) === '.local') {
+            $oFetcher = new \Potherca\Wall\Shell\CachedWebFetcher();
+        } else {
+            $oFetcher = new \Potherca\Wall\Shell\WebFetcher();
+        }
         $oWall = new \Potherca\Wall\Wall($oFetcher);
         $aWordCount = $oWall->getWordCount($sUrl);
 
