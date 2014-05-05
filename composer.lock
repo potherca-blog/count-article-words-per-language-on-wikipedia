@@ -3,8 +3,11 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1801c61628de8dadfa3186e017d8b42a",
+    "hash": "51f731ea007db22ba51ae7ec41b99f52",
     "packages": [
+
+    ],
+    "packages-dev": [
         {
             "name": "phpunit/php-code-coverage",
             "version": "2.0.x-dev",
@@ -333,12 +336,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "f0e9f6dcefc1739e716b75a77c3c4107033fa134"
+                "reference": "bbc1aa16d02273790a2106e3385cc0efeb6a18cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/f0e9f6dcefc1739e716b75a77c3c4107033fa134",
-                "reference": "f0e9f6dcefc1739e716b75a77c3c4107033fa134",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/bbc1aa16d02273790a2106e3385cc0efeb6a18cb",
+                "reference": "bbc1aa16d02273790a2106e3385cc0efeb6a18cb",
                 "shasum": ""
             },
             "require": {
@@ -382,7 +385,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2014-04-27 07:24:57"
+            "time": "2014-05-04 09:39:30"
         },
         {
             "name": "sebastian/comparator",
@@ -390,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2"
+                "reference": "9acfeaa92132325252efd9e973cd47e157d4c773"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2",
-                "reference": "f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/9acfeaa92132325252efd9e973cd47e157d4c773",
+                "reference": "9acfeaa92132325252efd9e973cd47e157d4c773",
                 "shasum": ""
             },
             "require": {
@@ -447,7 +450,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2014-05-02 07:05:58"
+            "time": "2014-05-04 09:14:18"
         },
         {
             "name": "sebastian/diff",
@@ -455,12 +458,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "ecc923996545d4e4395c0759b6c538f085233f62"
+                "reference": "f5bfa131c5bc1b1c90f4936367678ff471ca1bf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/ecc923996545d4e4395c0759b6c538f085233f62",
-                "reference": "ecc923996545d4e4395c0759b6c538f085233f62",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/f5bfa131c5bc1b1c90f4936367678ff471ca1bf3",
+                "reference": "f5bfa131c5bc1b1c90f4936367678ff471ca1bf3",
                 "shasum": ""
             },
             "require": {
@@ -497,7 +500,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2014-02-16 12:08:10"
+            "time": "2014-05-05 08:34:35"
         },
         {
             "name": "sebastian/environment",
@@ -505,19 +508,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "87c45ac84fd568336a6432da4878624795cad97d"
+                "reference": "10c7467da0622f7848cc5cadc0828c3359254df4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/87c45ac84fd568336a6432da4878624795cad97d",
-                "reference": "87c45ac84fd568336a6432da4878624795cad97d",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/10c7467da0622f7848cc5cadc0828c3359254df4",
+                "reference": "10c7467da0622f7848cc5cadc0828c3359254df4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.0.*@dev"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -548,7 +551,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2014-04-27 07:18:42"
+            "time": "2014-05-04 17:56:05"
         },
         {
             "name": "sebastian/exporter",
@@ -556,12 +559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "9a62fed6743f762aee4eb90a7b95c2aaf7b6c117"
+                "reference": "eb54a69388e5b7ea48561a65588f067fdda0c886"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/9a62fed6743f762aee4eb90a7b95c2aaf7b6c117",
-                "reference": "9a62fed6743f762aee4eb90a7b95c2aaf7b6c117",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/eb54a69388e5b7ea48561a65588f067fdda0c886",
+                "reference": "eb54a69388e5b7ea48561a65588f067fdda0c886",
                 "shasum": ""
             },
             "require": {
@@ -614,7 +617,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2014-04-27 07:18:52"
+            "time": "2014-05-05 08:31:02"
         },
         {
             "name": "sebastian/version",
@@ -700,9 +703,6 @@
             "homepage": "http://symfony.com",
             "time": "2014-04-18 20:40:13"
         }
-    ],
-    "packages-dev": [
-
     ],
     "aliases": [
 
