@@ -1,4 +1,4 @@
-# CAWPLOW - **c**ount **a**rticle **w**ords **p**er **l**anguage **o**n *w*ikipedia
+# CAWPLOW - Count Article Words Per Language On Wikipedia
 
 Ever wonder which language has a longer wikipedia article for any given subject? Now you can find out!
 
