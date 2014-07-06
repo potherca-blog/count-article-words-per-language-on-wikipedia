@@ -28,7 +28,7 @@
     verbose="true"
 >
     <testsuites>
-        <testsuite name="Wall">
+        <testsuite name="Cawplow">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
@@ -36,6 +36,7 @@
     <logging>
         <log type="coverage-text" target="php://stdout"/>
         <log type="coverage-clover" target="tests/coverage.xml" />
+        <log type="testdox-text" target="php://stdout"/>
     </logging>
 
     <filter>
