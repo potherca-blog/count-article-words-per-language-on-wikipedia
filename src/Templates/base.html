@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head profile="http://microformats.org/profile/rel-license">
+    <meta charset="utf-8" />
+    <title>Wikipedia Article Word Counter</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.2.2/css/foundation.min.css" />
+    <link rel="stylesheet" href="application.css" />
+</head>
+<body class="text-center">
+    <header>
+        <h1>
+            <a href="./">CAWpLoW</a>
+            <small>Count Article Words, per Language, on Wikipedia</small>
+        </h1>
+    </header>
+    <form
+        accept-charset="utf-8"
+        action=""
+        enctype="multipart/form-data"
+        method="post"
+        spellcheck="false"
+    >
+        <p class="panel callout radius">
+            This script will tell you which language has the most words for any given Wikipedia article.
+        </p>
+        <input name="url" type="text" size="32" placeholder="https://en.wikipedia.org/wiki/Foo"
+            tal:attribute="value url | nothing;"
+        />
+
+        <span tal:condition="errorMessage" tal:content="errorMessage" class="error"></span>
+
+        <button type="submit">Count!</button>
+    </form>
+    <tal:block content="structure content"></tal:block>
+    <hr/>
+
+    <footer class="text-right">
+        <span class="version" tal:content="version"></span>
+        &ndash;
+        The Source Code for this project is <a href="https://github.com/potherca/count-article-words-per-language-on-wikipedia"
+            >available on github.com</a> under a <a href="https://www.gnu.org/licenses/gpl.html" rel="license"
+            >GPLv3 License</a>
+        &ndash;
+        <a href="http://pother.ca/" class="created-by">Created by <span class="potherca">Potherca</span></a>
+    </footer>
+</body>
+</html>
