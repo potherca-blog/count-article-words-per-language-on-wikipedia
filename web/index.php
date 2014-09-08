@@ -4,20 +4,21 @@ require_once __DIR__ . '/../vendor/autoload.php';
 ini_set('default_charset', 'utf-8');
 
 $sUrl = '';
-$isValid = true;
+$bIsValid = true;
+$sVersion = getProjectVersion();
 $sContent = '<p  class="panel radius">Fetching the result could take some time. Please be patient.</p>';
 if (isset($_POST['url'])) {
     $sUrl = $_POST['url'];
-    $isValid = isValid($sUrl);
-    
+    $bIsValid = isValid($sUrl);
+
     if (isset($_SERVER['SERVER_NAME']) && substr($_SERVER['SERVER_NAME'], -6) === '.local') {
         $oFetcher = new \Potherca\Wall\Shell\CachedWebFetcher();
     } else {
         $oFetcher = new \Potherca\Wall\Shell\WebFetcher();
     }
-    
+
     $oWall = new \Potherca\Wall\Wall($oFetcher);
-    
+
     if ($isValid === true) {
         $sContent = buildContent($sUrl, $oWall);
     }
@@ -25,15 +26,10 @@ if (isset($_POST['url'])) {
 ?>
 <html>
 <head profile="http://microformats.org/profile/rel-license">
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     <title>Wikipedia Article Word Counter</title>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.2.2/css/foundation.min.css" />
-    <style>
-        body {padding:1em;}
-        table {margin: 0 auto;}
-        .potherca, .potherca:hover {color: rgb(220, 50, 47); border-bottom: 1px solid rgb(255,255,255);}
-        .potherca:hover {border-bottom-color: rgb(220, 50, 47)}
-    </style>
+    <link rel="stylesheet" href="application.css" />
 </head>
 <body class="text-center">
     <header>
@@ -52,27 +48,40 @@ if (isset($_POST['url'])) {
         <p class="panel callout radius">
             This script will tell you which language has the most words for any given Wikipedia article.
         </p>
-        <input class="<?=$isValid?'':'error'?>" name="url" type="text" size="32"
+        <input class="<?=$bIsValid?'':'error'?>" name="url" type="text" size="32"
             value="<?=$sUrl?>"
             placeholder="https://en.wikipedia.org/wiki/Foo"
         />
-        <span class="<?=$isValid?'hide':'error'?>">Given URL is not a valid Wikipedia article</span>
+        <span class="<?=$bIsValid?'hide':'error'?>">Given URL is not a valid Wikipedia article</span>
         <button type="submit">Count!</button>
     </form>
     <?=$sContent ?>
 <hr/>
+
 <footer class="text-right">
-    <small>
-        The Source Code for this project is available on <a href="https://github.com/potherca/count-article-words-per-language-on-wikipedia"
-       >github.com</a> under a <a href="https://www.gnu.org/licenses/gpl.html" rel="license"
+    <span class=""version><?=$sVersion?></span>
+    &ndash;
+    The Source Code for this project is <a href="https://github.com/potherca/count-article-words-per-language-on-wikipedia"
+    >available on github.com</a> under a <a href="https://www.gnu.org/licenses/gpl.html" rel="license"
        >GPLv3 License</a>
     &ndash;
-        Created by <a href="http://pother.ca/" class="potherca">Potherca</a>
+    <a href="http://pother.ca/" class="created-by">Created by <span class="potherca">Potherca</span></a>
 </footer>
+
 </body>
 </html>
 <?php
 
+function getProjectVersion()
+{
+    $sVersion = '';
+
+    $sFileContents = file_get_contents('../composer.json');
+    $aJson = json_decode($sFileContents, true);
+    $sVersion = $aJson['version'];
+
+    return $sVersion;
+}
 /**
  *
  */
