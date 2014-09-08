@@ -1,0 +1,81 @@
+        body {padding:1em;}
+        table {margin: 0 auto;}
+        footer {font-size: 80%;}
+        /**
+         * Footer for Potherca
+         */
+        .created-by {
+            -moz-border-radius: 0.35em;
+            -webkit-border-radius: 0.35em;
+            border-radius: 0.35em;
+            color: inherit;
+            padding-bottom: 2.2em;
+            text-decoration: none;
+            width: 9.1em
+        }
+
+        .potherca {
+            border-bottom: 1px solid rgb(220, 50, 50);
+            border-bottom-color: rgba(220, 50, 50, 1);
+            color: rgb(220, 50, 47);
+            position: relative;
+            -moz-transition: border 0.35s ease-out;
+            -o-transition: border 0.35s ease-out;
+            -webkit-transition: border 0.35s ease-out;
+            transition: border 0.35s ease-out
+        }
+
+        .created-by:hover .potherca {
+            color: rgb(255,255,255);
+            border-color: transparent;
+            border-bottom-color: rgba(220, 50, 50, 0)
+        }
+
+        .potherca::after {
+            background: no-repeat url(http://pother.ca/images/avatars/ben-cartoon-background-red-252-square.png);
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            -moz-border-radius: 2em;
+            -webkit-border-radius: 2em;
+            border-radius: 2em;
+            content: " ";
+            display: block;
+            height: 4em;
+            position: absolute;
+            right: 0;
+            top: -0.85em;
+            -moz-transform: rotatex(90deg);
+            -ms-transform: rotatex(90deg);
+            -o-transform: rotatex(90deg);
+            -webkit-transform: rotatex(90deg);
+            transform: rotatex(90deg);
+            -moz-transition: -moz-transform 0.35s ease-out;
+            -o-transition: -o-transform 0.35s ease-out;
+            -webkit-transition: -webkit-transform 0.35s ease-out;
+            transition: transform 0.35s ease-out;
+            width: 4em
+        }
+
+        .created-by:hover .potherca::after {
+            height: 4em;
+            -moz-transform: rotatex(0deg);
+            -ms-transform: rotatex(0deg);
+            -o-transform: rotatex(0deg);
+            -webkit-transform: rotatex(0deg);
+            transform: rotatex(0deg)
+        }
+
+    .application-error h2,
+    .application-error h3 {
+        color: white;
+    }
+    .application-error {
+        visibility: visible;
+        display: block;
+        opacity: 1;
+    }
+    .application-error pre {
+        text-align: left;
+        white-space: pre-wrap;
+    }
+/*EOF*/
