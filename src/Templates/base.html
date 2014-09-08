@@ -24,7 +24,7 @@
             This script will tell you which language has the most words for any given Wikipedia article.
         </p>
         <input name="url" type="text" size="32" placeholder="https://en.wikipedia.org/wiki/Foo"
-            tal:attribute="value url | nothing;"
+            tal:attributes="value url | nothing;"
         />
 
         <span tal:condition="errorMessage" tal:content="errorMessage" class="error"></span>
