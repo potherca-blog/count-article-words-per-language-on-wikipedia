@@ -9,8 +9,17 @@ $sContent = '<p  class="panel radius">Fetching the result could take some time. 
 if (isset($_POST['url'])) {
     $sUrl = $_POST['url'];
     $isValid = isValid($sUrl);
+    
+    if (isset($_SERVER['SERVER_NAME']) && substr($_SERVER['SERVER_NAME'], -6) === '.local') {
+        $oFetcher = new \Potherca\Wall\Shell\CachedWebFetcher();
+    } else {
+        $oFetcher = new \Potherca\Wall\Shell\WebFetcher();
+    }
+    
+    $oWall = new \Potherca\Wall\Wall($oFetcher);
+    
     if ($isValid === true) {
-        $sContent = buildContent($sUrl);
+        $sContent = buildContent($sUrl, $oWall);
     }
 }
 ?>
@@ -70,7 +79,7 @@ if (isset($_POST['url'])) {
 function isValid($sUrl)
 {
     $sPattern = '#https?://(?<LANGUAGE>[a-z]{2,3})\.wikipedia\.org/wiki/(?<ARTICLE>.+)#i';
-    $bValidUrl = (bool) preg_match($sPattern, $sUrl, $aMatches);
+    $bValidUrl = (bool) preg_match($sPattern, $sUrl/*, $aMatches*/);
     return $bValidUrl;
 }
 
@@ -79,7 +88,7 @@ function isValid($sUrl)
  *
  * @return string
  */
-function buildContent($sUrl)
+function buildContent($sUrl, $oWall)
 {
     $sContent = '';
 
@@ -374,12 +383,6 @@ function buildContent($sUrl)
             'zu' => 'isiZulu (Zulu)',
         );
 
-        if (isset($_SERVER['SERVER_NAME']) && substr($_SERVER['SERVER_NAME'], -6) === '.local') {
-            $oFetcher = new \Potherca\Wall\Shell\CachedWebFetcher();
-        } else {
-            $oFetcher = new \Potherca\Wall\Shell\WebFetcher();
-        }
-        $oWall = new \Potherca\Wall\Wall($oFetcher);
         $aWordCount = $oWall->getWordCount($sUrl);
 
         natcasesort($aWordCount);
