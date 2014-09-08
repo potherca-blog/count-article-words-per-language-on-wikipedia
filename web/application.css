@@ -65,3 +65,17 @@
             transform: rotatex(0deg)
         }
 
+    .application-error h2,
+    .application-error h3 {
+        color: white;
+    }
+    .application-error {
+        visibility: visible;
+        display: block;
+        opacity: 1;
+    }
+    .application-error pre {
+        text-align: left;
+        white-space: pre-wrap;
+    }
+/*EOF*/
