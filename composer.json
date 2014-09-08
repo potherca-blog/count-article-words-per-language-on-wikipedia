@@ -12,7 +12,6 @@
             "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "phptal/phptal": "~1.3"
     },
