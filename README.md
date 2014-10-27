@@ -20,7 +20,7 @@ Live version running on heroku: http://cawplow.herokuapp.com/
 [Wikipedia]: http://wikipedia.org/
 
 [Project Codeship Page]: https://www.codeship.io/projects/34202
-[Project Stage Page]: http://bl.ocks.org/potherca/a2ae67caa3863a299ba0
+[Project Stage Page]: http://bl.ocks.org/potherca/raw/a2ae67caa3863a299ba0/
 [Releases Page]: /releases/
 [Codacy Page]: https://www.codacy.com/public/potherca/count-article-words-per-language-on-wikipedia.git
 [GPL3+]: LICENSE
