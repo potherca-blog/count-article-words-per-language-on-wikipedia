@@ -24,7 +24,7 @@ Live version running on heroku: http://cawplow.herokuapp.com/
 [Insight Page]: https://insight.sensiolabs.com/projects/437db550-78dc-47e4-b132-2fbb3d833b81
 [Project Codeship Page]: https://www.codeship.io/projects/34202
 [Project Stage Page]: http://bl.ocks.org/potherca/raw/a2ae67caa3863a299ba0/
-[Releases Page]: /releases/
+[Releases Page]: https://github.com/potherca/count-article-words-per-language-on-wikipedia/releases
 
 [Build Status Badge]: http://img.shields.io/codeship/c4342030-1820-0132-2de1-465b69949973.svg
 [Codacy Badge]: http://img.shields.io/codacy/49e345aa5e5849259754672d238692d0.svg
