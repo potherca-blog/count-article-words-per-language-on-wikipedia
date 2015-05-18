@@ -30,7 +30,7 @@ Live version running on heroku: http://cawplow.herokuapp.com/
 
 [Build Status Badge]: http://img.shields.io/codeship/c4342030-1820-0132-2de1-465b69949973.svg
 [Codacy Badge]: http://img.shields.io/codacy/49e345aa5e5849259754672d238692d0.svg
-[License Badge]: https://img.shields.io/badge/License-GPL3%2B-lightgray.svg
+[License Badge]: https://img.shields.io/badge/License-GPL3%2B-blue.svg
 [Project Stage Badge: Production Ready]: http://img.shields.io/badge/Project%20Stage-Production%20Ready-brightgreen.svg
 [Version Badge]: http://img.shields.io/github/tag/potherca/count-article-words-per-language-on-wikipedia.svg
 [Insight Badge]: https://insight.sensiolabs.com/projects/437db550-78dc-47e4-b132-2fbb3d833b81/mini.png
