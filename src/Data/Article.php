@@ -8,12 +8,12 @@ namespace Potherca\Wall\Data;
 class Article
 {
     /** @var  \DOMDocument */
-    protected $m_sArticle;
+   private $m_sArticle;
 
     /**
      * @return \DOMDocument
      */
-    protected function getArticle()
+    private function getArticle()
     {
         $oDocument = new \DOMDocument();
         libxml_use_internal_errors(true);
@@ -23,9 +23,9 @@ class Article
     }
 
     /**
-     * No public access allowed
+     * @param $p_sContents
      */
-    public function __construct($p_sContents)
+    final public function __construct($p_sContents)
     {
         $this->m_sArticle = (string) $p_sContents;
     }
@@ -33,7 +33,7 @@ class Article
     /**
      * @return array
      */
-    public function getArticleUrls()
+    final public function getArticleUrls()
     {
         $aArticles = array();
 
@@ -55,7 +55,7 @@ class Article
     /**
      * @return string
      */
-    public function getArticleLanguage()
+    final public function getArticleLanguage()
     {
         $sLanguage = '';
 
@@ -71,7 +71,7 @@ class Article
     /**
      * @return int
      */
-    public function getWordCount()
+    final public function getWordCount()
     {
         /*
             Certain parts of the main content should not count towards the word
@@ -104,7 +104,7 @@ class Article
     /**
      * @param \DOMDocument $oArticle
      */
-    protected function removeUnwantedNodes(\DOMDocument $oArticle)
+    private function removeUnwantedNodes(\DOMDocument $oArticle)
     {
         $oTocElement = $oArticle->getElementById('toc');
         if ($oTocElement !== null) {
@@ -127,7 +127,7 @@ class Article
      *
      * @return \DOMNode
      */
-    protected function removeNode(\DOMNode $p_oElement)
+   private function removeNode(\DOMNode $p_oElement)
     {
         return $p_oElement->parentNode->removeChild($p_oElement);
     }
@@ -137,7 +137,7 @@ class Article
      *
      * @return \DOMNode[]
      */
-    protected function removeNodes(\DOMNodeList $p_oNodeList)
+   private function removeNodes(\DOMNodeList $p_oNodeList)
     {
         $aRemovedNodes = array();
 
@@ -153,7 +153,7 @@ class Article
      *
      * @return bool
      */
-    protected function isBeyondCountBoundary(\DOMNode $t_oNode)
+   private function isBeyondCountBoundary(\DOMNode $t_oNode)
     {
         $bBeyondBoundary = false;
 
@@ -178,7 +178,7 @@ class Article
      *
      * @return array
      */
-    protected function removeNodesBeyondCountBoundary(\DOMElement $oElement)
+   private function removeNodesBeyondCountBoundary(\DOMElement $oElement)
     {
         $aRemovedNodes = array();
 
@@ -202,7 +202,7 @@ class Article
      *
      * @return string
      */
-    protected function countWords($sNodeValue)
+   private function countWords($sNodeValue)
     {
         $iCount = str_word_count($sNodeValue);
         $iPregSplitCount = count(preg_split('~[\p{Z}\p{P}]+~u', $sNodeValue, null, PREG_SPLIT_NO_EMPTY));
