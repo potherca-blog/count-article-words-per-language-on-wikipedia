@@ -2,6 +2,9 @@
 
 namespace Potherca\Wall\Data;
 
+use arc\html\Parser;
+use arc\html\Proxy;
+
 /**
  * Class Article
  */
@@ -9,24 +12,24 @@ class Article
 {
     /** @var  \DOMDocument */
    private $m_sArticle;
+    /** @var Parser */
+    private $p_oParser;
 
     /**
-     * @return \DOMDocument
+     * @return \arc\html\Proxy|string
      */
     private function getArticle()
     {
-        $oDocument = new \DOMDocument();
-        libxml_use_internal_errors(true);
-        $oDocument->loadHTML($this->m_sArticle);
-
-        return $oDocument;
+        return $this->p_oParser->parse($this->m_sArticle);
     }
 
     /**
+     * @param $p_oParser
      * @param $p_sContents
      */
-    final public function __construct($p_sContents)
+    final public function __construct($p_oParser, $p_sContents)
     {
+        $this->p_oParser = $p_oParser;
         $this->m_sArticle = (string) $p_sContents;
     }
 
@@ -37,9 +40,9 @@ class Article
     {
         $aArticles = array();
 
-        $oPath = new \DomXPath($this->getArticle());
-        $oNodeList = $oPath->query('//*[contains(@class, "interlanguage-link")]/a');
-        foreach ($oNodeList as $t_oElement) {
+        $aNodeList = $this->getArticle()->find('* .interlanguage-link a');
+
+        foreach ($aNodeList as $t_oElement) {
             /** @var \DOMElement $t_oElement */
             $sLanguageCode = $t_oElement->getAttribute('lang');
             $sHref = $t_oElement->getAttribute('href');
@@ -59,10 +62,10 @@ class Article
     {
         $sLanguage = '';
 
-        $oElement = $this->getArticle()->getElementById('mw-content-text');
+        $aElement = $this->getArticle()->find('#mw-content-text');
 
-        if ($oElement !== null) {
-            $sLanguage = $oElement->getAttribute('lang');
+        if (isset($aElement[0])) {
+            $sLanguage = $aElement[0]->getAttribute('lang');
         }
 
         return $sLanguage;
@@ -88,60 +91,57 @@ class Article
 
         $this->removeUnwantedNodes($oArticle);
 
-        $oElement = $oArticle->getElementById('mw-content-text');
+        $aElement = $oArticle->find('#mw-content-text');
 
         // @TODO: It does not seem to be possible to easily seperate the articles content from links/ref section
-        //$this->removeNodesBeyondCountBoundary($oElement);
+        //$this->removeNodesBeyondCountBoundary($aElement);
 
         if (true) {
-            $sNodeValue = $oElement->nodeValue;
-            $iCount = $this->countWords($sNodeValue);
+            $iCount = $this->countWords($aElement[0]);
         }
 
         return $iCount;
     }
 
     /**
-     * @param \DOMDocument $oArticle
+     * @param Proxy $oArticle
      */
-    private function removeUnwantedNodes(\DOMDocument $oArticle)
+    private function removeUnwantedNodes(Proxy $oArticle)
     {
-        $oTocElement = $oArticle->getElementById('toc');
-        if ($oTocElement !== null) {
-            $this->removeNode($oTocElement);
+        $aNodeList = $oArticle->find('#toc');
+        if (isset($aNodeList[0]) === true) {
+            $this->removeNode($aNodeList[0]);
         }
 
-        $oPath = new \DomXPath($oArticle);
-        $oNodeList = $oPath->query('//*[contains(@class, "mw-editsection")]');
-        $this->removeNodes($oNodeList);
+        $aNodeList = $oArticle->find('*.mw-editsection');
+        $this->removeNodes($aNodeList);
 
-        $oNodeList = $oPath->query('//*[contains(@class, "reference")]');
-        $this->removeNodes($oNodeList);
+        $aNodeList = $oArticle->find('*.reference');
+        $this->removeNodes($aNodeList);
 
-        $oNodeList = $oArticle->getElementsByTagName('noscript');
-        $this->removeNodes($oNodeList);
+        $aNodeList = $oArticle->find('noscript');
+        $this->removeNodes($aNodeList);
     }
 
     /**
-     * @param \DOMNode $p_oElement
-     *
-     * @return \DOMNode
+     * @param Proxy $p_oElement
+     * @return mixed
      */
-   private function removeNode(\DOMNode $p_oElement)
+   private function removeNode(Proxy $p_oElement)
     {
-        return $p_oElement->parentNode->removeChild($p_oElement);
+        unset($p_oElement->nodeValue);
     }
 
     /**
-     * @param \DOMNodeList $p_oNodeList
+     * @param array $p_aNodeList
      *
-     * @return \DOMNode[]
+     * @return array
      */
-   private function removeNodes(\DOMNodeList $p_oNodeList)
+   private function removeNodes(array &$p_aNodeList)
     {
         $aRemovedNodes = array();
 
-        foreach ($p_oNodeList as $t_oElement) {
+        foreach ($p_aNodeList as $t_oElement) {
             $aRemovedNodes[] = $this->removeNode($t_oElement);
         }
 
