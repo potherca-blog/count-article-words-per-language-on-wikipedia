@@ -6,6 +6,7 @@
 [![Insight Badge]][Insight Page]
 [![Version Badge]][Releases Page]
 [![License Badge]][GPL3+]
+[![GetBadges Game](https://potherca-count-article-words-per-language-on-wikipedia.getbadges.io/shield/company/potherca-count-article-words-per-language-on-wikipedia)](https://potherca-count-article-words-per-language-on-wikipedia.getbadges.io/?ref=shield-game)
 
 Ever wonder which language has a longer wikipedia article for any given subject? Now you can find out!
 
