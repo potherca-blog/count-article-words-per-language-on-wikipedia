@@ -306,12 +306,9 @@ class TemplateUtilities
      */
     public function getProjectVersion($sFileContents)
     {
-        /*$sVersion = '';*/
-
         $aJson = json_decode($sFileContents, true);
-        $sVersion = $aJson['version'];
-
-        return $sVersion;
+        
+        return $aJson['version'] ?? '';
     }
 
     /**
