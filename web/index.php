@@ -6,13 +6,12 @@ use Potherca\Wall\Shell\WebFetcher;
 use Potherca\Wall\Wall;
 
 require_once __DIR__ . '/../vendor/autoload.php';
-ini_set('default_charset', 'utf-8');
 
 $sUrl = '';
 $sErrorMessage = '';
 $bIsValid = true;
 $oUtilities = new TemplateUtilities();
-$sFileContents = file_get_contents('../composer.json');
+$sFileContents = file_get_contents('../version.json');
 $sVersion = $oUtilities->getProjectVersion($sFileContents);
 $sContent = '<p  class="panel radius">Fetching the result could take some time. Please be patient.</p>';
 if (isset($_POST['url'])) {
@@ -67,4 +66,4 @@ catch (Exception $e) {
     $sContent = str_replace($sReplace, $sWith, file_get_contents($sTemplate));
 }
 
-die($sContent);
+echo $sContent;
