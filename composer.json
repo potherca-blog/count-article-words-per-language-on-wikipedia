@@ -2,7 +2,7 @@
     "name": "potherca/wikipedia-article-wordcount-per-language",
     "description": "When given the URL for any Article on Wikipedia, it will return a word count for that article for all languages it is available in.",
     "homepage": "https://github.com/potherca/wikipedia-word-count-per-language",
-    "license": "GPL-3.0+",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Potherca",
