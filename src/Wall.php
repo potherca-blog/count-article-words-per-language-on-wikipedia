@@ -2,6 +2,8 @@
 
 namespace Potherca\Wall;
 
+use arc\html\Parser;
+
 use Potherca\Wall\Data\Article;
 use Potherca\Wall\Interfaces\Fetcher;
 
@@ -116,7 +118,8 @@ class Wall
      */
     protected function createArticleFromString($sContent)
     {
-        return new Article($sContent);
+        $oParser = new Parser();
+        return new Article($oParser, $sContent);
     }
 }
 
